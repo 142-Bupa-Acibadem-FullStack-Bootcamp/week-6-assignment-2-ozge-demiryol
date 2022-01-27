@@ -1,0 +1,146 @@
+* {
+  //Bu ayarlar tarayicinin varsayilan kenar boslugu ayarlarini sifirlar.
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$gm__color: rgba(145, 145, 145, 0.25);
+$playerx__color:#FD8F52;
+$playero__color:#fe676e;
+$playerx__shadow:#cf77483d;
+$bg-color:#fffcf7 ;
+$heading: #5e5e5e;
+$tile-border:#afafaf;
+$bg-color__button:linear-gradient(90deg, rgba(254,103,110,1) 0%, rgba(255,220,162,1) 100%);
+$font-heading:'Quicksand', sans-serif;
+$font-tile:'Fredoka One', cursive;
+
+body{
+  background-color: $bg-color;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 2.5em;
+    font-family: $font-heading;
+    font-weight: 700;
+    color: $heading;
+    span.span-x{
+      font-family: $font-tile;
+      color: $playerx__color;
+    }
+    span.span-o{
+      font-family: $font-tile;
+      color: $playero__color;
+    }
+}
+
+h4.player__turn {
+  text-align: center;
+  margin: 1.5em 0 2em 0;
+  font-size: 1.5em;
+  font-family: $font-heading;
+  color: $heading;
+}
+
+section.container {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  max-width: 25em;
+  height: 25em;
+  z-index:1;
+  div.tile {
+    border: 2px solid $tile-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+    font-family: 'Fredoka One', cursive;
+
+    //Karelerin dis kenarlarindaki fazla cizgilerden kurtulmak icin 
+    &:first-child, &:nth-child(2), &:nth-child(3){
+      border-top: none;
+    }
+    &:nth-child(3n+1){
+      border-left: none;
+    }
+    &:nth-child(3n+3){
+      border-right: none;
+    }
+    &:last-child, &:nth-child(8), &:nth-child(7){
+      border-bottom: none;
+    }
+  }
+}
+
+.player-x{
+  color: $playerx__color;
+  text-shadow:
+          0 0 4px $playerx__shadow,
+          0 0 8px $playerx__shadow,
+          0 0 15px $playerx__shadow;
+
+  
+}
+.player-o{
+  color: $playero__color;
+  text-shadow:
+          0 0 4px $playerx__shadow,
+          0 0 8px $playerx__shadow,
+          0 0 15px $playerx__shadow;
+}
+
+.invisible{
+  display: none;
+}
+
+div.result-container {
+    display: visible;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 30em;
+    height: 18em;
+    z-index: 3;
+    color: $heading;
+    /* Glassmorphism */
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+    background-color: $gm__color;
+    border-radius: 0.5em;
+    
+    
+    div.result{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4em;
+      .game-result__text{
+        position: relative;
+        font-size: 2em;
+        font-family: $font-heading;
+      }
+      button#btn__restart {
+        margin: 2em 0;
+        color: $bg-color;
+        background: $bg-color__button;
+        font-family: $font-heading;
+        font-size: 0.9em;
+        padding: 1em;
+        width: 10em;
+        border-radius: 2em;
+        border: none;
+        &:hover{
+          cursor: pointer;
+          transition: 0.4s;
+          background: linear-gradient(45deg, rgba(254,103,110,1) 0%, rgba(255,220,162,1) 100%);;
+          border: none;
+        }
+    }
+    }
+  }
