@@ -1,5 +1,5 @@
 //Oyundaki tum kareler secilir
-let tiles = Array.from(document.querySelectorAll(".tile"));
+let tiles = document.querySelectorAll(".tile");
 //Siranin hangi oyuncuda oldugunu gosteren alan secilir
 let playerTurn = document.querySelector(".player__turn");
 let gameResult = document.querySelector(".game-result__text");
@@ -8,7 +8,6 @@ let playAgainArea = document.querySelector(".invisible");
 //Oyun bittiginde tum karelerin icini sifirlayan butonu sectik
 let restart = document.querySelector("#btn__restart");
 let player = "X";
-let winner;
 let isGameOver = false;
 
 //Oyun basladiginda siranin hangi oyuncuda oldugunu soyluyoruz
@@ -57,10 +56,12 @@ const checkWin = () => {
     isPlayerWon = true;
     if (h1 || v1 || d1) {
       player = tiles[0].innerHTML;
-    } else if (h2 || v2) {
-      player = tiles[1].innerHTML;
-    } else if (h3 || v3 || d2) {
-      player = tiles[2].innerHTML;
+    } 
+    if (h2 || v2 || d2) {
+      player = tiles[4].innerHTML;
+    } 
+    if (h3 || v3 ) {
+      player = tiles[8].innerHTML;
     } 
   }
 
@@ -83,15 +84,18 @@ const checkWin = () => {
   isGameOver = false;
 };
 
-const handlePlay = (tile) => {
+
+const handlePlay = tile => {
   if (tile.innerHTML == "" && !isGameOver) {
     tile.innerHTML = player;
     console.log(isGameOver);
     //Karelere tiklandiktan sonra oyuncu X ise O'ya O ise X'e donusturulur. Boylece X'in hamlesi bittikten sonra sira O'ya gecer.
     if (player === "X") {
+      tile.classList.remove("player-o");
       tile.classList.add("player-x"); // oyuncu x icin belirledigimiz class'i atadik
       player = "O";
-    } else if (player === "O") {
+    } else {
+      tile.classList.remove("player-x");
       tile.classList.add("player-o");
       player = "X";
     }
@@ -111,11 +115,16 @@ const resetTheGame = (isGameOver) => {
     playAgainArea.classList.add("result-container");
   }
   isGameOver = false;
-
+  
+  
   //butona tiklaninca butun karelerin icini sifirlayan fonksiyon tetiklenir.
   restart.addEventListener("click", () => {
     playAgainArea.classList.remove("result-container");
     playAgainArea.classList.add("invisible");
-    tiles.forEach((tile) => (tile.innerHTML = ""));
+    tiles.forEach(tile => (tile.innerHTML = ""));
+    //Oyuncu sirasi ve oyuncu sirasini gosteren alan ilk haline donusturulur.
+    player = "X";
+    playerTurn.innerHTML = `${player}'s turn`;
   });
+  
 };

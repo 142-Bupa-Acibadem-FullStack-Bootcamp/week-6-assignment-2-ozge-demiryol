@@ -2,7 +2,6 @@
 
 This repository contains the assignment of Patika.dev & Bupa Acıbadem Sigorta Full Stack Bootcamp. Tic Tac Toe Game was developed by using HTML, SCSS and pure JavaScript.
 
-
 ## Screenshots
 
 ![](./screenshots/1.png)

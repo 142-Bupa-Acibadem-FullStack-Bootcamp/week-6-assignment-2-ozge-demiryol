@@ -130,11 +130,12 @@ div.result-container {
         color: $bg-color;
         background: $bg-color__button;
         font-family: $font-heading;
-        font-size: 0.9em;
+        font-size: 1em;
         padding: 1em;
         width: 10em;
         border-radius: 2em;
         border: none;
+        letter-spacing: 0.3px;
         &:hover{
           cursor: pointer;
           transition: 0.4s;

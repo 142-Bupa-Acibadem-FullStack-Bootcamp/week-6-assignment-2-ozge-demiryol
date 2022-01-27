@@ -5,7 +5,6 @@
           box-sizing: border-box;
 }
 
-/*https://yaroslavweb.github.io/Neon-Generator/*/
 body {
   background-color: #fffcf7;
 }
@@ -103,8 +102,6 @@ div.result-container {
   width: 30em;
   height: 18em;
   z-index: 3;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
   color: #5e5e5e;
   /* Glassmorphism */
   backdrop-filter: blur(6px) saturate(180%);
@@ -142,11 +139,12 @@ div.result-container div.result button#btn__restart {
   background: -webkit-gradient(linear, left top, right top, from(#fe676e), to(#ffdca2));
   background: linear-gradient(90deg, #fe676e 0%, #ffdca2 100%);
   font-family: "Quicksand", sans-serif;
-  font-size: 0.9em;
+  font-size: 1em;
   padding: 1em;
   width: 10em;
   border-radius: 2em;
   border: none;
+  letter-spacing: 0.3px;
 }
 
 div.result-container div.result button#btn__restart:hover {
@@ -155,64 +153,5 @@ div.result-container div.result button#btn__restart:hover {
   transition: 0.4s;
   background: linear-gradient(45deg, #fe676e 0%, #ffdca2 100%);
   border: none;
-}
-
-@media only screen and (max-width: 400px) {
-  h1 {
-    font-size: 1em;
-  }
-  h4.player__turn {
-    font-size: 0.6em;
-  }
-  section.container {
-    max-width: 15em;
-    max-height: 15em;
-  }
-  section.container div.tile {
-    font-size: 3em;
-  }
-  div.result-container {
-    width: 8em;
-    height: 5em;
-    top: 20%;
-    left: 10%;
-  }
-  div.result-container div.result {
-    margin-top: 2em;
-  }
-  div.result-container div.result .game-result__text {
-    font-size: 0.8em;
-  }
-  div.result-container div.result button#btn__restart {
-    font-size: 0.6em;
-    padding: 0.5em;
-    width: 8em;
-    border-radius: 2em;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  h1 {
-    font-size: 1.5em;
-  }
-  h4.player__turn {
-    font-size: 0.8em;
-  }
-  div.result-container {
-    width: 25em;
-    height: 14em;
-  }
-  div.result-container div.result {
-    margin-top: 3em;
-  }
-  div.result-container div.result .game-result__text {
-    font-size: 1.4em;
-  }
-  div.result-container div.result button#btn__restart {
-    font-size: 0.8em;
-    padding: 0.8em;
-    width: 10em;
-    border-radius: 2em;
-  }
 }
 /*# sourceMappingURL=main.css.map */
